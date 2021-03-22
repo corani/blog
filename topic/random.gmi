@@ -1,0 +1,14 @@
+# Random thoughs
+
+=> gemini://loadingdata.nl/page/2004-08-17_Cats_and_Dogs.gmi Cats and Dogs
+=> gemini://loadingdata.nl/page/2004-09-07_Locust.gmi
+=> gemini://loadingdata.nl/page/2014-05-01_May_Day_Barbeque.gmi May Day Barbeque
+=> gemini://loadingdata.nl/page/2014-06-06_New_blog.gmi New blog
+=> gemini://loadingdata.nl/page/2014-06-07_Most_delayed_software_project.gmi Possibly the most delayed software project
+=> gemini://loadingdata.nl/page/2014-06-08_New_internet.gmi New internet
+=> gemini://loadingdata.nl/page/2014-06-14_Edge_of_life.gmi Edge of life
+=> gemini://loadingdata.nl/page/2015-02-03_A_new_life_for_the_vacuum_tube.gmi A new life for the vacuum tube!
+=> gemini://loadingdata.nl/page/2015-02-18_Grow_update_February_2015.gmi Grow Update February 2015
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics

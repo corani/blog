@@ -1,0 +1,7 @@
+# May Day Barbeque
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/random.gmi Random Thoughts
+
+First of May, Labor Day, barbeque with friends and family in the park. Apparently we're not the only ones, I see columns of smoke going up all around.

@@ -1,0 +1,8 @@
+# Projects
+
+=> gemini://loadingdata.nl/page/2014-06-01_Pocket_to_epub.gmi Pocket to epub
+=> gemini://loadingdata.nl/page/2014-06-01_Java_Bootcamp.gmi Java Bootcamp
+=> gemini://loadingdata.nl/page/2014-06-06_Accounting_for_geeks.gmi Accounting for geeks
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics

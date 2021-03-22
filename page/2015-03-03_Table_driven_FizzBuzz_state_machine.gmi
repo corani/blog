@@ -1,0 +1,68 @@
+# Table driven FizzBuzz State Machine
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/programming.gmi Programming
+
+This morning I woke up with another implementation for the classic FizzBuzz problem in my mind, a table driven state machine. This is easy to implement, since there are only 15 possible states if you keep no memory of previous states. The number of states can be reduced even further if you do keep memory.
+
+Anyway, I decided to write this one in C++11, using lambda functions. Here it goes:
+
+```
+#include <iostream>
+#include <functional>
+
+using namespace std;
+
+template<typename T>
+function<int (int)> makeState(function<T (int)> t, int next) {
+    return [t, next](int n) {
+        cout << t(n) << endl;
+        return next;
+    };
+}
+
+function<int (int)> makeNumber(int next) {
+    return makeState<int>([](int n) { return n; }, next);
+}
+
+function<int (int)> makeString(string str, int next) {
+    return makeState<string>([str](int n) { return str; }, next);
+}
+
+function<int (int)> table[] = {
+    /* 01 */ makeNumber(1),
+    /* 02 */ makeNumber(2),
+    /* 03 */ makeString("Fizz", 3),
+    /* 04 */ makeNumber(4),
+    /* 05 */ makeString("Buzz", 5),
+    /* 06 */ makeString("Fizz", 6),
+    /* 07 */ makeNumber(7),
+    /* 08 */ makeNumber(8),
+    /* 09 */ makeString("Fizz", 9),
+    /* 10 */ makeString("Buzz", 10),
+    /* 11 */ makeNumber(11),
+    /* 12 */ makeString("Fizz", 12),
+    /* 13 */ makeNumber(13),
+    /* 14 */ makeNumber(14),
+    /* 15 */ makeString("FizzBuzz", 0)
+};
+
+int main(void) {
+    for (int i = 1, s = 0; i <= 100; i++) {
+        s = table[s](i);
+    }
+}
+```
+
+Starting from the bottom, and working our way up, we iterate over the numbers 1-100 and start in State 0. In each iteration, we apply the index to the current state and move to the state that is returned.
+
+All the possible states are in the table. Each state consists of a function that takes the index and prints the correct value for that state, then returns the (zero indexed) next state.
+
+There are two helper functions, one for creating the Number states and one for creating the String states. They do that by supplying a lambda that will return the output to be printed to the generic makeState function.
+
+The makeState function returns a lambda function that, when invoked, will do the actual work of printing the correct output and returning the next state.
+
+You may notice the explicit mention of the template type in makeNumber and makeString. This is an unfortunate necessity in C++11, due to the difference in actual types between lambda's and function types. If you don't specify the actual template type, the compiler is (yet) unable to figure out the correct conversion.
+
+While I haven't actually timed it, I'm pretty sure this version is much slower than the naive solutions to the FizzBuzz problem. It is, however, a nice demonstration of state machines!

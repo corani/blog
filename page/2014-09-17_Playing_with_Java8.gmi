@@ -1,0 +1,89 @@
+# Playing with Java 8
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+I've been playing some more with some of the Java 8 features in my toy message-bus [4]. While the features may seem "just syntax sugar" on the surface, I think it's a real game-changer for Java.
+
+It takes some time to get your head around using them (though it certainly helps to have experience with other functional languages), but they can really help make your code more concise and clear.
+
+For example: I have an event queue (or rather, a bunch of them) that was basically a thin wrapper around a generic Java Queue. In various places I had code that would loop around popping the head and dispatch it or waiting if the Queue was empty.
+
+I refactored it in three steps:
+
+(1) Use Optional instead of returning null. This allows you to simply chain an "ifPresent" and "orElse" lambda function.
+(2) Move the wait into an iterator, so the iterator will return events for as long as the event queue is running.
+(3) Move the loop into the event queue, and supply a lambda with what to do with each event. This also allowed me to make the iterator private to the event queue and move the synchronization into the event queue, improving the encapsulation.
+
+These may sound like trivial changes, but it allowed me to cut the code down from something like (synchronization around wait/notify elided):
+
+## Original
+
+```
+// event-loop:
+while (running) {
+    synchronized(queue) {
+        event = queue.poll();
+        if (event == null) {
+            wait();
+        } else {
+            dispatch(event);
+        }
+    }
+}
+
+// publish:
+synchronized(queue) {
+    queue.add(event);
+    notify();
+}
+```
+
+## Step 1
+
+```
+// event-loop:
+while (running) {
+    synchronized(queue) {
+        queue.poll()
+            .ifPresent(event -> dispatch(event))
+            .orElse(() -> wait());
+    }
+}
+
+// publish:
+synchronized(queue) {
+    queue.add(event);
+    notify();
+}
+```
+
+## Step 2
+
+```
+// event-loop:
+queue.forEach(optional ->
+    optional
+        .ifPresent(event -> dispatch(event)
+        .orElse(() -> wait())
+);
+
+// publish:
+synchronized(queue) {
+    queue.add(event);
+    notify();
+}
+```
+
+## Step 3
+
+```
+// event-loop:
+queue.forEach(event -> dispatch(event));
+
+// publish:
+queue.add(event);
+```
+
+=> https://github.com/corani/minibus/ Toy message-bus

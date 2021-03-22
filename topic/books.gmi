@@ -1,0 +1,7 @@
+# Books
+
+=> gemini://loadingdata.nl/page/2015-02-05_Reading_update_2014.gmi Reading Update 2014
+=> gemini://loadingdata.nl/page/2015-02-11_Reading_update_January_2015.gmi Reading Update January 2015
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics

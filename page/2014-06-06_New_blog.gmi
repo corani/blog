@@ -1,0 +1,14 @@
+# New blog
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/random.gmi
+
+It's probably been over a year since the previous iteration of my blog disappeared from the internet. During that time I've been too busy with my work and newborn daughter to bother with it. I've simple posted my ramblings on Google+ [1].
+
+This iteration happened quite by accident. I was looking for a place to host some of the presentations I've created recently and came cross GitHub Pages. I pushed my presentations to there, and then discovered they support CNAMES (so I could forward my domain to there) and Jekyll [2]. Turns out I can host my blog here for free, and keep the history in GIT as an added bonus!
+
+I'll try to back-fill this blog with some of the content and photos from Google+, and from my old blog (when I find it), so stay tuned (and subscribe). My first order of business though is to fill out the about page.
+
+=> http://plus.google.com/+DanielBos/ [1] Google+
+=> http://jekyllrb.com/ [2] Jekyll

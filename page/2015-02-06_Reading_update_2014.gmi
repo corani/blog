@@ -1,0 +1,62 @@
+# Reading update 2014
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/books.gmi Books
+
+When I was younger, I used to be a very avid reader. I would read anything, to the tune of at least a book a week. A few years ago, however, I stopped reading pretty much all together, for a variety of reasons, including major life changes and later a prolonged case of depression. Last year, with a lot of help, I've gotten myself back on the rails again though. And as my life and mood began to improve (despite of my job being lost with an over one-year rampdown period), I started reading again.
+
+To celebrate my new blog (I started with Jekyll last year [4], and have moved to Ghost recently), to get some more content up and to bring a little more variety in my posts, I've decided to start an ongoing series with thumbnail reviews of the books I've read in the preceding time. I hope this will become a semi-monthly series of posts.
+
+At the bottom of this post are a couple of Amazon affiliate links. I hope you'll consider supporting this blog by using them, if any of the books capture your attention. Actually, if you plan to buy anything from Amazon, consider first clicking one of the links below, since I'll get a little kick-back for anything you buy, as long as you enter Amazon through one of the links :-)
+
+## 1. Donald P. Gregg - Pot Shards
+
+> Fragments of a Life Lived in CIA, the White House, and the Two Koreas
+
+I've always been interested in politics and history, and get most of my news through the fabulous No Agenda Show [5] with John C. Dvorak and Adam Curry. It is through them that the book "Pot Shards" was brought to my attention. Donald Gregg is a relative of Adam Curry, and through him, we got a first-hand account on the background of this book, and the difficulties of getting it cleared by the CIA for release.
+
+Gregg had a decades long career in the CIA, stationed in Korea, Birma, Japan and Washington. After leaving the CIA, he was National Security Advisor to George H.W. Bush, became the Ambassador to South Korea and later chairman of the board of the Korea Society.
+
+The book describes his career through a collection of personal stories with thumbnail sketches of the political climate and decision making project at the time. At times, the CIA censorship is painfully clear, with gaps and missing interesting details. Through Adam, I understand that the CIA initially wanted to take out the entire almost a decade long post in Japan, so it's a miracle how much content actually made it to press.
+
+This is a book you'll have to read between the lines. Some of the things not mentioned, are more important than those that do get mentioned. Having said that, it gives you a very engaging look behind the scenes of American politics, from covert missions to tennis matches with the Bushes and diplomats in Japan (which sounded a lot like CIA recruitment)
+
+## 2. Michael Scheuer - Imperial Hubris
+
+> Why the West is losing the War on Terror
+
+Quite by accident, I stumbled upon a book with "Anonymous" as the original author. While I was back in The Netherlands for a vacation, I was doing what I usually do, browse the books at the local "Goodwill" store, when my eye was caught by this book. I found it very enlightening, the author makes a compelling case that the major failure that is called The War on Terror is caused not by a failure of intelligence, but by deliberately ignoring and actively overruling the intelligence to further a political agenda.
+
+Although the book is a decade old by now, it appears we haven't really learned much since. The author, now known to be an over two decades CIA intelligence veteran and former chief of the group tracking Bin Laden, begins his case with an explanation of what intelligence work consists of, and how it informs political and military decisions.
+
+The very first step is to do the "checkables", to review all the data you already have in-house, to consult with all experts on the matter, find assets already in the area, dive into the history books to learn about the area and the peoples involved, etc. Non of this was done before the invasion of Afghanistan and Iraq.
+
+Scheuer is not anti-war, anti military action, or trying to find reasons why America shouldn't have invaded though. Quite the opposite. His view is that the best tactic would have been an immediate, massive counter-strike against Al Qaeda/Taliban. He makes the case that the long delay and the coalition building gave their opponents so much time that by the time of the invasion, they had effectively dissipated among the population and over Afghanistan's porous borders.
+
+Furthermore, the reliance on airstrikes is shown to be an effective recruitment method for terrorists. Airstrikes are highly inefficient, causing many collateral victims, very expensive and a show of cowardice. The West is portrayed as not man enough to fight for themselves, but instead having to hide behind technology.
+
+I'm barely scraping surface of this book. For anyone wondering why, after decades of war, terrorism is only getting stronger these days, I highly recommend this book.
+
+## 3. George W. Bush - Decision Points
+
+After the previous book, I felt I needed some lighter reading and picked up George W's memoire. I had hoped to find his thoughts and decision making process on the War on Terror in it, to see the other side of the narrative set out by Scheuer. I was disappointed.
+
+George W. certainly goes in to the topic of the War on Terror, but it all feels more like a reading of a collection of newspaper articles than a solid behind-the-scenes. Honestly, what came across most was that W. isn't evil, he isn't trying to push some globalist agenda, there wasn't malice behind his actions, only incompetence. Not just of him personally, but an incompetent political milieu with carreer politicians who care more about their re-election than the good of America.
+
+I was expecting the book to be a hagiography, and in that I wasn't disappointed. The book is full of "people say that XXX, that's not how I see it" and "people believe I did XXX, that's not how I remember it". It all feels like an attempt to create an alternative narrative, a narrative in which W. is a likeable guy who mostly did good.
+
+But now in all seriousness. They say "History is written by the victors". What worries me, is that in a hundred or so years, people will wonder what the start of the 21st century was like. They'll want to read first person accounts of the important events that shaped our future, and they'll read the twisted, and retrospectively coerced to a certain narrative, accounts of the President of the United States. And they may believe that this is what actually happened.
+
+## 4. Hillary Rodham Clinton - Living History
+
+At the same time when I picked up W's book, I also picked up Hillary Clinton's book. Or as she would have it, Hillary Rodham Clinton. She seems pretty adamant on that. This book is much better written, though still somewhat hagiographic.
+
+The book describes Hillary's life and background from her childhood through Bill's polical career and ending in her own senatoral inauguration. It was very interesting to see Bill's career from his run for governor of Arkansas, his consideration to run for president in '88 and his presidency from '93-'01.
+
+It appears that a lot of the book was written around the Starr inquiry and that's a pity. Of course the investigations feature prominently in the book, but it seems that much of the earlier parts of the book are structured to set up all the event in such a way as to make every step in the inquiry petty and ridiculous. Don't get me wrong, I believe the whole inquiry to be a sham, but still I think the book focuses too much on making the Clintons relatable and the vicims of the evil, vengeful Republicans.
+
+Having said that, the book does personalize the brand Hillary. It shows her as a strong, independent, ambitious woman, who tries to do the right thing. She may actually be able to pull of a presidency herself, and it would be fun to see Bill as the first First Husband.
+
+=> gemini://loadingdata.nl/page/2014-06-06_New_blog.gmi New Blog
+=> http://www.noagendashow.com/ No Agenda Show

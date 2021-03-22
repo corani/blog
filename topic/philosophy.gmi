@@ -1,0 +1,11 @@
+# Philosophy
+
+=> gemini://loadingdata.nl/page/2004-08-07_Childhood_Kindertijd.gmi Childhood / Kindertijd
+=> gemini://loadingdata.nl/page/2004-08-09_Long_Live_Dictatorship.gmi Long live dictatorship / Lang leve de dictatuur
+=> gemini://loadingdata.nl/page/2005-10-08_The_Way_De_Weg.gmi The Way / De Weg
+=> gemini://loadingdata.nl/page/2014-06-21_From_Dominion_to_Sumerian.gmi From Dominion to Sumerian
+=> gemini://loadingdata.nl/page/2014-09-15_The_decline_of_critical_thinking.gmi The decline of Critical Thinking
+=> gemini://loadingdata.nl/page/2015-02-04_A_theory_of_consciousness.gmi A theory of consciousness
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics

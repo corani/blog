@@ -1,0 +1,18 @@
+# Oberon Anagrams
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+To get a feel of what programming in Oberon-2 is like, I installed the Oxford Oberon-2 compiler [4] and wrote a simple Anagram application.
+
+The simplest way to find if two words are anagrams is to sort the characters in each of them and then compare them. The application I wrote allows you to add words to a "dictionary". Internally, for each word the sorted characters are used as a hash, words with the same hash are put in the same bucket. When we later ask for the anagrams of a search word, we simply get the hash and return all the words in the corresponding bucket.
+
+You can find my first attempt on GitHub [5]. You'll notice there is a lot of code for such a simple application, and that much of it is pointer manipulation. I had to implement a Hashmap and a Vector from scratch and deal with raw, fixed-length character arrays. Obviously not a very pleasant experience.
+
+It is clear that what Oberon sorely needs is a standard library. So I started writing one [6]. So far I've implemented a basic String, Vector and Map. This allowed me to write a much nicer version [7].
+
+=> http://spivey.oriel.ox.ac.uk/corner/Oxford_Oberon-2_compiler Oxford Oberon-2 compiler
+=> https://gist.github.com/corani/8f29689d3a5fa05a6948 First attempt
+=> https://github.com/corani/oberon-stdlib Oberon stdlib
+=> https://gist.github.com/corani/21017c1b02e43a7cb123 Second attempt

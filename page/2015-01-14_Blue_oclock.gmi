@@ -1,0 +1,9 @@
+# Blue o'Clock
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+I was toying around with JavaScript a bit, came up with this clock that cycles through the RGB spectrum [4]. I'm quite satisfied with the function passing capabilities and the anonymous objects.
+
+=> http://corani.github.io/blue-o-clock/

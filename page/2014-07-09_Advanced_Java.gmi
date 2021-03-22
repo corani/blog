@@ -1,0 +1,9 @@
+# Advanced Java
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/programming.gmi Programming
+
+This is a presentation I gave to my team of experienced Java ME developers, to get them up to speed with many of the more advanced and recently added features to the Java language.
+
+=> http://corani.github.io/advanced-java/ Advanced Java

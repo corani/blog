@@ -1,0 +1,16 @@
+# Possibly the most delayed software project
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/random.gmi Random Thoughts
+
+Apparently the projected started in 1960 and was the original idea of what eventually became the web. Now, 54 years later, they have a deliverable: OpenXanadu [1]. Ironically it's running in a webbrowser ツ
+
+Actually it's pretty cool, it's more about citing than linking, you'll see your document in the middle, and there where text is quoted, the quoted text is highlighted and visually linked with the quoted document to the left/right. You can jump directly to the other document, which then becomes your center document.
+
+A bit hard to explain, just give it a try!
+
+Update: I just came across a (very long) article on Wired [2] about the history of the project.
+
+=> http://xanadu.com/#deliverable [1] OpenXanadu
+=> http://archive.wired.com/wired/archive/3.06/xanadu_pr.html [2] Wired article

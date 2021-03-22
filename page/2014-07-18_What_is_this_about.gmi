@@ -1,0 +1,10 @@
+# What is this about? #mh17
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/politics.gmi Politics
+
+> What is this about? A border, a language, pride, power games: how does any of that justify this landscape of destruction?
+> -Jonathan Jones
+
+=> http://www.theguardian.com/commentisfree/2014/jul/18/mh17-crash-images-war-europe-2014-malaysia Source

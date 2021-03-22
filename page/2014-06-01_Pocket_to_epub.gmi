@@ -1,0 +1,10 @@
+# Pocket to epub
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/project.gmi
+
+I recently created a utility in Python that will ask you for access to your Pocket [1] account, fetch your list of unread articles, fetch each article in this list and convert them to individual ePub files. It is still very much 0.0.1, but if you're interested, pull the github repo [2] and give it a try!
+
+=> http://getpocket.com/ [1] Pocket
+=> https://github.com/corani/pocket_epub [2] Pocket to epub

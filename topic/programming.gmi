@@ -1,0 +1,25 @@
+# Programming
+
+=> gemini://loadingdata.nl/page/2014-06-09_Sorted_linked_list.gmi Sorted linked list
+=> gemini://loadingdata.nl/page/2014-06-10_Swift_programming_language.gmi Swift programming language
+=> gemini://loadingdata.nl/page/2014-06-18_Object_inheritance.gmi Object inheritance
+=> gemini://loadingdata.nl/page/2014-07-08_Helpful_error_messages.gmi Helpful error messages
+=> gemini://loadingdata.nl/page/2014-07-08_Fizzbuzz.gmi Fizzbuzz
+=> gemini://loadingdata.nl/page/2014-07-09_Advanced_Java.gmi Advanced Java
+=> gemini://loadingdata.nl/page/2014-07-11_Inifinity.gmi Infinity
+=> gemini://loadingdata.nl/page/2014-08-02_Fizzbuzz_in_Elixir.gmi Fizzbuzz in Elixir
+=> gemini://loadingdata.nl/page/2014-08-14_Programming_challenges.gmi Programming challenges
+=> gemini://loadingdata.nl/page/2014-09-09_Common_core_math.gmi Common Core Math
+=> gemini://loadingdata.nl/page/2014-09-17_Playing_with_Java8.gmi Playing with Java 8
+=> gemini://loadingdata.nl/page/2014-11-27_Java_generators.gmi Java Generators
+=> gemini://loadingdata.nl/page/2015-01-14_Blue_oclock.gmi Blue o'Clock
+=> gemini://loadingdata.nl/page/2015-03-03_Table_drive_FizzBuzz_state_machine.gmi Table driven FizzBuzz State Machine
+
+## Oberon
+
+=> gemini://loadingdata.nl/page/2014-08-14_Oberon_report.gmi Oberon report
+=> gemini://loadingdata.nl/page/2014-08-15_Oberon_compiler_theory.gmi Oberon compiler theory
+=> gemini://loadingdata.nl/page/2014-08-15_Oberon_lexer.gmi Oberon lexer
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics

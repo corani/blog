@@ -1,0 +1,13 @@
+# Accounting for geeks
+
+=> gemini://loadingdata.nl/index.gmi Home
+=> gemini://loadingdata.nl/topic/index.gmi Topics
+=> gemini://loadingdata.nl/topic/project.gmi Projects
+
+This is a presentation I gave during my departments Share-Anything knowledge sharing cycle. I have been a long-time user of Ledger-CLI [1], and am of the opinion that everyone should be keeping account of their personal finances.
+
+The first part of the presentation introduces the basics of accounting [2], the second half goes through some of the functionality of Ledger-CLI specifically. If plain text files and command-line tools are too bare-bones for you, the principles apply to any tool, even pen-and-paper (though I suggest GnuCash [3] if you want to have a graphical user interface).
+
+=> http://www.ledger-cli.org/ [1] Ledger-CLI
+=> http://corani.github.io/accounting-for-geeks/ [2] Basics of accounting
+=> http://gnucash.org/ [3] GnuCash

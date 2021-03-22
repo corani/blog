@@ -1,0 +1,53 @@
+# Grow update February 2015
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/random.gmi Random Thoughts
+
+If you follow my posts on Google+, you'll probably know I'm currently running an experiment with growing vegetables hydroponically, in my apartment. I thought I'd share a slightly longer status update here for posterity.
+
+The system I'm using, is the simplest and cheapest I could found, the Kratky method. It is basically a non-translucent container filled with a nutrient solution dissolved in water. The plants are in net-pots hanging in holes in the top of the container.
+
+Initially the net-pots are half-submerged in the solution, giving the young plants loads of water and nutrients. As the water level drops, the plants will chase the water with their roots, while the air-gap causes the plants to grow oxygen-roots. Because of this, it is not necessary to aerate the water, or use some kind of ebb-flow system.
+
+In principle, once the plants are in container, you don't need to do anything else until you harvest them. This method is supposed to work exceptionally well for leafy-greens.
+
+## Seeds
+
+For this experiment, I am using three kinds of plants: Lettuce, Amaranth and Basil. To get a sense of how well the seeds I bought germinate, I put some wet paper towel in a box, dropped some seeds on it, and left it a few days in a dark place.
+
+The lettuce did exceptionally well, all the seeds sprouted, the amaranth sprouted a little more than half of the seeds, and only one of the basil seeds sprouted within a week.
+
+## Growing the seeds
+
+I then put the lettuce seeds, some more amaranth seeds and a whole lot more basil seeds in coconut pellets. I have since found a supplier for rockwool cubes, but at the time it was the best I could found.
+
+Basically, they're coin-sized compressed pellets of coconut shell fiber. Add water, and they expand upwards about 10x, with a hole in the middle. Put your seeds in and add some half-strength nutrient solution to the bottom of the tray. The pellets will wick up the water and stay moist, ideal for sprouting plants.
+
+## Nutrient solution
+
+For this first experiment, I'm using a ready-made nutrient mixture (the paper bag at the top of the picture), which contains the correct amount of N-P-K, magnesium, calcium and micro-nutrients. In addition, I also bought a bag of magnesium-sulphate and calcium-nitrate from the same supplier as a starter kit for future projects (the stuff costs almost nothing)
+
+The ready-made mix consists of three separate components. You disolve each of them in a litre of water. To use them, you add each component to the water in the container, in a 1:100 ratio. Very convenient!
+
+## Container
+
+I'm using two 25L totes as the containers to grow the plants in. I drilled 8 holes in the top with a holesaw and added a water level indicator to the side, with two L pieces and a length of clear tubing.
+
+The water should be enough to support the plants until harvest, but with the very dry climate here in Beijing, I thought it better to keep an eye on it anyway. Once the plants are bigger, it'll be harder to lift the top.
+
+The picture was taking just after I'd transplanted the young plants from the coconut pellets to the grow box. As you can see, I put them in net pots filled with ceramic balls for stability. Once the roots start growing, they'll grow through the net pot into the water.
+
+## pH
+
+This time, I built and planted two containers. Unfortunately, only one of the basil plants made it, but both the lettuce and amaranth did very well. I've planted box A with the basil, three amaranth and four lettuce. Box B with amaranth and lettuce half-and-half.
+
+The tap water here in Beijing is heavily chlorinated and has a pH of almost 8. Far to high for the plants I'm growing.
+
+De-chlorinating is easy, since chlorine is a gas, it'll evaporate by itself when you leave the water standing long enough. If needed, you can speed this process up by aerating/circulating the water.
+
+To lower the pH, you basically need to add some kind of acid. This time I used distilled white vinegar, though when I was reading up on it just now, it may not have been the best of ideas. Apparently it's not very stable and can cause slimy roots due to certain enzymes.
+
+I read that car battery acid is a good and cheap way to go. It's 100% pure sulphuric acid, so you need just a few drops to take the pH down, and much more stable.
+
+As an experiment, I'm currently running one container on pH 5.5 and the other on pH 6.0, to see what works better.
