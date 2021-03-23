@@ -1,0 +1,55 @@
+# Preventing NodeMCU Bootloops
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+I've been playing with the NodeMCU development board a lot over the last couple of days, in particular, communicating with it through MQTT and connecting it to one of those tiny OLED display modules.
+
+NodeMCU has a very convenient facility to automatically run some code when the processor boots, by creating an "init.lua" file. However, last night I ran into some problems with that.
+
+I had made some programming mistake in the code that caused the board to reset. It would then reboot, load "init.lua", hit the same mistake and reset. Ad infinitum. The only way to resolve this bootloop was to re-flash the entire firmware.
+
+When I had the board up and running again, the first thing to do was to find a better solution for this. I experimented with several possible remedies until I finally settled on the following:
+
+```
+local USER = 0
+local button = 1
+local previous = 1
+local state = false
+gpio.mode(USER, gpio.INPUT)
+
+tmr.alarm(0, 500, 1, function()
+    button = gpio.read(USER)
+    gpio.write(USER, gpio.HIGH)
+    gpio.mode(USER, gpio.INPUT)
+
+    if button == 0 and previous == 1 then
+        state = not state
+        if state then
+            print("Will cancel")
+        else
+            print("Will init")
+        end
+    end
+    previous = button
+end)
+
+tmr.alarm(1, 10000, 0, function()
+    tmr.alarm(0, 10, 0, function() end)
+    if state then
+        print('Cancelled init')
+    else
+        print('Init')
+        dofile('real-init.lua')
+    end
+end)
+
+print('Press <USER> to cancel...')
+```
+
+What this code does is give the user ten seconds to cancel the automatic running of the actual code (in "real-init.lua") by pressing the USER button on the board. This is done by setting up two alarms, one single-shot alarm that will be fired after ten seconds, and one recurring alarm that will be fired every half-second.
+
+The recurring alarm will poll the input port connected to the button and switch the state after each button depress. The single-shot alarm will cancel the recurring alarm and run "real-init.lua" unless the boot has been cancelled.
+
+You may notice some peculiar code at the start of the recurring alarm, where I read, write and change the mode every time the alarm fires. I found this was the only way to get the button-read to work reliably. I assume this is because in parallel to the button, there's an LED attached to this port, that's used as output. Without this code, once you press the button, the port will stay low and you won't be able to detect the depress or any subsequent press.

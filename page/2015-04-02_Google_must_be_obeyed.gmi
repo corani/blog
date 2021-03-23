@@ -1,0 +1,26 @@
+# Google must be obeyed
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/politics.gmi Politics
+
+Google is really enjoying shooting themselves in the foot in China. In an update to an old post [4], the following was released:
+
+> As a result of a joint investigation of the events surrounding this incident by Google and CNNIC, we have decided that the CNNIC Root and EV CAs will no longer be recognized in Google products. This will take effect in a future Chrome update. To assist customers affected by this decision, for a limited time we will allow CNNIC’s existing certificates to continue to be marked as trusted in Chrome, through the use of a publicly disclosed whitelist.
+
+The opinions of Google AND CNNIC seem to differ a bit. Here's what Google says:
+
+> CNNIC will implement Certificate Transparency for all of their certificates prior to any request for reinclusion. We applaud CNNIC on their proactive steps, and welcome them to reapply once suitable technical and procedural controls are in place.
+
+And this is what CNNIC says [5]:
+
+> The decision that Google has made is unacceptable and unintelligible to CNNIC, and meanwhile CNNIC sincerely urge that Google would take users’ rights and interests into full consideration.
+
+Sounds to me like Google is making a proclamation of "do exactly as you're told, or we will continue to block you". Abuse of power anyone?
+
+Google admits that they don't believe "any further unauthorized digital certificates have been issued, nor do we believe the misissued certificates were used outside the limited scope of MCS Holdings’ test network" and NCCIC immediately revoked the intermediate certificate when they learned MCS had abused it.
+
+Granted, NCCIC shouldn't have issued an intermediate signing certificate, but it sounds like they've done all the right things when they learned it had been misused.
+
+=> http://googleonlinesecurity.blogspot.nl/2015/03/maintaining-digital-certificate-security.html?m=1
+=> http://www1.cnnic.cn/AU/MediaC/Announcement/201504/t20150402_52049.htm

@@ -1,0 +1,47 @@
+# On terrorism and propaganda
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/politics.gmi Politics
+
+A few days ago China published their new counter-terrorism law [4], and ever since the "red scare" propaganda has exploded all over the media. While I try to ignore most of it, it has been sad to see how many intelligent people (at least, I thought they were) fall for the same traps.
+
+The most radical voices (I paraphrase: "OMG THE CHICOMS ARE COMING FOR OUR BABIES!!") have been from the American tech-sector. I'd have thought, of all people, they should know better.
+
+The headlines around the world have been variations on "The Chinese will take your crypto-keys". This couldn't be further from the truth, and is actually what the American government is pushing for.
+
+If you read the actual text of the law [5], you'll find that there's only one (1) mention of cryptography (Article 18):
+
+> Telecommunications operators and internet service providers shall provide technical interfaces, decryption and other technical support assistance to public security organs and state security organs conducting prevention and investigation of terrorist activities in accordance with law.
+
+Correct me if I'm wrong, but I see no possible way how this can be construed as "handing over all the keys". At most, China asks telecom and internet companies to provide technical assistance with decryption when possible, where the company does the actual work, something that has been part of US law for decades.
+
+The US, on the other hand, is pushing for back-doors [6] (see also: Juniper), key escrow [7] (hello Clipper Chip! [8]), demand that companies must decrypt all customer data and demand that companies proactively monitor and share [9] all data that could ever be construed as terrorism-related (with the definition of what amounts to "terrorism" changing by the day, that basically means all data)
+
+This appears to be a clear case of "The pot calling the kettle black", except that this particular kettle is squeaky clean.
+
+## An aside
+
+Did you ever notice that when the news is discussing a topic you happen to know a lot about, they always get it wrong? What makes you think they do better for the rest of the topics they discuss?
+
+Don't take their propaganda hook, line and sinker, without questioning. Spend a few minutes to investigate issues by yourself!
+
+Did you know that a couple of years ago, the law that forbids the US government from propagandizing the American public was repealed [10]?
+
+(Of course, that ban never really worked. They would simply place propaganda articles in the foreign press, then sit back and watch American press pick it up themselves. It's just that much easier since repealing the Smith-Mundt Act.)
+
+You think American propaganda doesn't exist? Think again [11].
+
+## Conclusion
+
+The Obama administration must be laughing behind closed doors. While all the techies were pointing fingers at China, they pushed CISA through congress by hiding it in the Omnibus Bill [12] and are ramping up even more invasive surveillance laws, undoubtedly "because ISIS, the Children and now the Chiners"
+
+=> http://news.xinhuanet.com/english/2015-12/28/c_134957923.htm
+=> http://chinalawtranslate.com/%E5%8F%8D%E6%81%90%E6%80%96%E4%B8%BB%E4%B9%89%E6%B3%95-%EF%BC%882015%EF%BC%89/?lang=en
+=> http://www.theguardian.com/technology/2015/nov/18/us-europe-reignite-debate-back-door-encryption-paris-attacks
+=> https://theintercept.com/2015/12/28/recently-bought-a-windows-computer-microsoft-probably-has-your-encryption-key/
+=> https://epic.org/crypto/clipper/
+=> https://theintercept.com/2015/12/24/cisa-party/
+=> http://foreignpolicy.com/2013/07/14/u-s-repeals-propaganda-ban-spreads-government-made-news-to-americans/
+=> https://aclj.org/free-speech-2/why-is-obama-administration-putting-government-monitors-in-newsrooms
+=> http://www.post-gazette.com/business/tech-news/2015/12/29/Ced-Kurtz-s-Techman-Texts-Congress-passes-cybersecurity-bill-CISA-online-privacy-surveillance/stories/201512290012

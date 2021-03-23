@@ -1,0 +1,23 @@
+# The case of the missing Corium
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/politics.gmi Politics
+
+A disturbing new development in the Fukushima Saga [4] came across my desk today. Apparent TEPCO can't seem to find the reactor fuel from the Daiichi Unit-1 ruins. This is bad.
+
+When a meltdown occurs, the reactor core, nuclear fuel rods and all the other junk around it melt together into a kind of radioactive lava called Corium. This is what is missing in Fukushima.
+
+The same thing happened in Chernobyl, where, after the meltdown, the Corium melted through the containment unit and everything below that, and over three meters into the solid granite bedrock below the reactor, where it was eventually found.
+
+From the article:
+
+> In February of this year two muon detectors from the High Energy Accelerator Research Organization [KEK] in Tsukuba, Japan were installed outside the Fukushima Daiichi unit-1 ruins at reactor vessel height for the purpose of finding that ‘missing’ reactor fuel.
+>
+> Now the plan is to go ahead and insert the new shape-changing robot in April to see if there is enough left of the control rod drive rail to get that robot onto the containment catwalk, where it should be able to circle inside the containment itself to collect more data about the location of the corium (melted fuel). Hopefully it’s still in the containment drywell, not having melted through the base pad into the lower level basement or ground below.
+
+Fukushima, however, wasn't build on solid granite. It was built on top of gravel. It's anyone's guess who deep the Corium has leaked into the ground and if it has reached the ground water level...
+
+If the Corium has melted through the containment unit, it will be incredibly difficult to contain it. If it has already reached the ground water level, the entire area's water table may have been polluted already, contaminating all the crops in a wide area, not to mention all the water that ends up in the ocean.
+
+=> http://oilprice.com/Latest-Energy-News/World-News/The-Hunt-For-Fukushimas-Missing-Reactor-Fuel.html

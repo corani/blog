@@ -6,6 +6,7 @@
 => gemini://loadingdata.nl/page/2014-06-21_From_Dominion_to_Sumerian.gmi From Dominion to Sumerian
 => gemini://loadingdata.nl/page/2014-09-15_The_decline_of_critical_thinking.gmi The decline of Critical Thinking
 => gemini://loadingdata.nl/page/2015-02-04_A_theory_of_consciousness.gmi A theory of consciousness
+=> gemini://loadingdata.nl/page/2015-03-11_Waves.gmi Waves
 
 => gemini://loadingdata.nl/ Home
 => gemini://loadingdata.nl/topic/ Topics

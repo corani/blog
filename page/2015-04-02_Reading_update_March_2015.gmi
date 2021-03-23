@@ -1,0 +1,78 @@
+# Reading Update March 2015
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/books.gmi Books
+
+## 1. E. M. Cioran - The New Gods
+
+This is a difficult book to read. It's well worth the effort, but is has been a struggle to get through. Cioran is heralded as the Great Pessimist, a title well deserved. He's a modern French philosopher, originally from Romania, who is one of the rare examples of a classical philosopher. Meaning that he lives what he speaks, isolated, in poverty and rejecting all recognition and honors offered.
+
+In The New Gods, Cioran brings a chainsaw to the debate about religion, and he's not afraid to swing it around haphazerdly. The first sentence in the book sets the tone:
+
+> With the exception of some aberrant cases, man does not incline to the good: what god would impel him to do so?
+
+Cioran sets out to argue rather convincingly that if there were a God that was all good, He'd probably left the task of creating the world to some lesser Demiurge, and by now has turned His back to us in disgust. Cioran continues to break down monotheism, noting it's "curious, the effects of monotheist logic: a Pagan, once he became a Christian, tended toward intolerance."
+
+It appears he has much more respect for the Eastern philosophic tradition, with some amusing quotes as "On the spiritual level, all pain is an opportunity; on the spiritual level alone" and "When we are to meditate vacuity, impermanence, nirvana, crouching or lying down is the best position. It is the one in which these themes were conceived. It is only in the West that man thinks standing up. Which accounts perhaps, for the unfortunately positive character of our philosophy."
+
+While this was not an easy book to read, it's also the book I took the most quotes from in many years. I'll probably have to read it again some day, though not very soon. I'll leave you with one more quote:
+
+> When we consider the individual, or humanity as a whole, we must not identify to advance with to progress, unless we admit that going toward death is progress.
+
+## 2. Gabriel Garcia Marquez - Chronicle of a Death Foretold
+
+If you're going to read one book by Garcia-Marquez, read this one. It's a briliantly constructed novella that starts out as a detached investigative story into a murder that took place a quarter of a century earlier, but quickly draws you in.
+
+Everybody in the small town knew the twins were going to kill Nasar, even Nasar himself. Yet nobody did anything to stop them. It all started when a young bride was sent back to her family in disgrace - she wasn't a virgin. Nasar was blamed, but was he responsible? When the book starts, he is portrayed as an immoral and violent man, but as the story progresses, things become murkier and less clear-cut as they appeared.
+
+The story starts out with the question "why?", but ends up with a lot of "what if's?" and combines crime, romance, honor and revenge within about 100 pages. Magical realism at it's best!
+
+## 3. Terry Pratchett - The Color of Magic
+
+Discworld Book 1
+
+One of my favourite authors, Terry Pratchett, passed away on March 12th, 2015, after fighting early-onset Altzheimers for almost a decade. In honor of Sir Pratchett, I'm re-reading the Discworld series from start to finish. You will be missed. May you live on forever in the clacks.
+
+```
+$ wget --server-response -nv --spider http://loadingdata.nl
+  HTTP/1.0 200 OK
+  Date: Thu, 02 Apr 2015 05:45:01 GMT
+  ...
+  X-Clacks-Overhead: GNU Terry Pratchett
+  Connection: close
+```
+
+I discovered the series while still in highschool, and have read most of the soon to be 41 volumes multiple times. Close until his diagnosis, he was publishing about two a year, and they were masterpieces each and every one of them.
+
+For those who are not familiar with them (shame on you, click the link above and start reading!), the series is a comedy/parody fantasy series, with multiple main story lines and characters. There are various recommended reading orders if you want to get the most out of them, but each book is a standalone story.
+
+This first book details the story of Rincewind, the incompetent wizard, who, due to an unfortunate magical accident, knows only one spell, which may end the world (nobody knows for sure) and the tourist, in fact, the first tourist, because who would go to Ankh-Morpork for fun?
+
+Through the book, your usual cast of heroes, invisible dragons, high-energy magic, gods, economists, pirates, astronomers and a many-legged suitcase show up. I'm not going to say more. Read it yourself!
+
+## 4. Francis Fukuyama - The Great Disruption
+
+Human Nature and the Reconstitution of Social Order
+
+It's curious sometimes, how you find parallels between totally unrelated books. Cioran argued that man, in general, does not incline to do good. Fukuyama shows, with ample sociological data, how societies overcome this. While man by nature may not incline to the good, to survive and florish in a society, he will at least have to appear to be good.
+
+This is not the main theme of the book, though one that I found most interesting and convincing. The Great Disruption, from the title of the book, refers to a transformation Fukuyama observed in Western societies, roughly around the middle of the last century, where families broke down and crime, distrust and individualism increased.
+
+Fukuyama attempts to first prove this was actually the case, then analyze and discuss a range of possible causes and finally talks about how to counter and overcome this trend, nicely wrapping up the book in three acts. I consider myself politically progressive, and while some of the characterizations about family values (such as the consistent usage of the term illegitimicy for children born to unmarried parents) bothered me, I found many of the neo-conservative arguments made rather convincing. Maybe I'm getting old :-)
+
+Fukuyama connects his great disruption with Toffler's Third Wave, the transition from an industrial society towards an information society. This left many disenfranchised as traditional communities were broken down. He shows how the same thing happened during the previous wave (from agriculture towards industry), and how eventually a new set of norms were constructed.
+
+The jury is still out on if the reconstruction envisioned in the book will play out. It has, however, opened my mind to some of the reasoning behind the current "us versus them" culture building up in the US and many other Western countries. With the family-unit and work-unit broken down, nationalism makes a perverted kind of sense, as a means to bind people together.
+
+## 5. Ronald H. Fritze - Invented Knowledge
+
+False History, Fake Science and Pseudo-religions
+
+I started the book with the expectation of a fun exploration of the stories about Atlantis, the discovery of America, the Black Athena, white supremacy, etc. I found not just that, but a fascinating deep dive into the "why", "what" and "who".
+
+Fritze not only describes each of these stories in detail, but goes in to the history of the various characters, explores the sources, the arguments and counter arguments, but also investigates the phenomena of "invented knowledge" itself. Who are the people coming up with these theories and what are their reasons.
+
+But more importantly, what is the impact of this pseudo-knowledge, what are the risks. I found the chapters on the Christian Identity and the Nation of Islam movements particularly interesting. As a non-American, I've been only vaguely aware of these. It is frightening to known these movements, with an ideology that is clearly bogus, were able to amass such a following.
+
+I was not entirely surprised that these movements reached their peak during the hights of Fukuyama's Great Disruption. It makes some kind of sense that when the traditional societal ties began to break down, people started to be attracted to alternative ways to organize themselves, along the lines of race and heritage.

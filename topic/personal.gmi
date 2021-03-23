@@ -1,0 +1,8 @@
+# Personal
+
+=> gemini://loadingdata.nl/page/2015-07-15_Chinese_Green_Card.gmi Chinese Green Card
+=> gemini://loadingdata.nl/page/2015-08-05_Sleeping_in_the_street.gmi Sleeping in the street
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+

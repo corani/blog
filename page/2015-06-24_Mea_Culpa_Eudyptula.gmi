@@ -1,0 +1,31 @@
+# Mea Culpa - Eudyptula
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+I have been neglecting my blog for a while. I have been spending a good deal of my free time on studying the Linux kernel, while working on the Eudyptula Challenge [4]. This is a Linux kernel development challenge, that guides you through a series of increasingly complicated tasks in order to become a kernel developer.
+
+I quite enjoy the structure of this challenge. It's completely email based, as is the entire kernel development process, and mostly gives you specific tasks, but very little guidance. There is no hand-holding involved, so what you're getting is real work experience.
+
+To complete a specific task, you'll be scouring the internet and literature (GregKH's Linux Kernel in a Nutshell) is especially helpful) for information, that you'll have to figure out how to piece together yourself.
+
+## Some history
+
+I have been using Linux for ages, if memory serves me, at least two decades. I started out with the infamous Slackware, which didn't have binary packages, so you had to compile everything from source. On the spare (I believe) i386 I had at the time, this could take days. I used it as a toy home-server, to replace the Netware server I was using previously.
+
+After that, I distro-hopped for a while, trying out among others Caldera, Mandrake Linux (before it became Mandriva) and Redhat 5 before settling on Debian for many years.
+
+About ten years ago, I switched my main desktop machine to Linux, specifically Ubuntu Breezy, and I haven't looked back ever since. I was fortunate enough in my previous job to be able to switch my entire R&D department over to Linux desktops as well, which made our work much easier, since we could mirror our production environment on our local machines.
+
+At Nokia (and later Microsoft) I was forced to go back to Windows on the desktop, but fortunately the entire development environment and build infrastructure ran on massive RHEL servers. My Windows machine basically ran Office, putty and Xming :-)
+
+## Why?
+
+With my stint at Microsoft coming to an end in a couple of months (my entire department is being discontinued), I've been giving some serious thought on what I'd like to do next to further my career. Linux has long been a passion of mine, so I'm considering to try make it my day-job.
+
+While I have a lot of experience in using Linux, administrating it and even writing (application) software for it, the kernel is still a hole in my knowledge. This, by the way, is one of the things I love about Linux. Since it's all open source, if you're interested, there's not a thing you can't learn about it.
+
+And therefor I've taken the deep dive into the Eudyptula Challenge, to give some structure to my efforts.
+
+=> http://eudyptula-challenge.org/

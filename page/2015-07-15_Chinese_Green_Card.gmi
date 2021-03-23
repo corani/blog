@@ -1,0 +1,75 @@
+# Chinese Green Card
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/personal.gmi Personal
+
+After much trial and tribulation, my application for the Chinese Permanent Residence Permit ("Green Card") has finally been accepted today. This kicks off an investigation that can take up to a year or so, before I'll (hopefully) have my Green Card granted.
+
+## Why?
+
+So far I've had to extend my temporary residence permit every year, with the permit being tied to my place of work. In the last half year alone, I've had to change my work permit three times: first for the yearly extension, then for the name-change from a Nokia subsidiary to a Microsoft subsidiary, and most recently, from a Microsoft subsidiary to Microsoft China itself.
+
+Luckily, the company arranged for all of the actual work, but it's still a hassle. What's more, if I ever loose my job, I'll automatically loose my work and residence permit, meaning I'll have to either find a new job within one month (and have them re-apply the work and residence permit), or I'll have to leave the country and apply for a family-visa, then re-enter the country and apply for a new residence permit again. If I find a job after that, I'll have to go through the same process again (leave the country and apply for a work-visa, then re-enter the country and have the new company apply for a new work and residence permit)
+
+All in all, a major headache. Once I'm granted a Green Card, I'll only have to extend it every five years, and I no longer need a work permit. So I'll no longer have to leave the country to apply for new paperwork. Plus, future companies won't have to deal with the hassle of having to arrange a work permit, which requires a lot of documentation and effort from their side.
+
+## Eligibility
+
+There are nine categories of people who are (potentially) eligible for a Chinese Green Card in Beijing:
+
+* Those having invested in excess of 500k USD in the past three years in certain promoted industries;
+* Those having invested in excess of 2M USD in the past three years;
+* Senior consultants at deputy general manager or above level involved in major engineering or scientific research for at least four consecutive years;
+* Those working in high technology at deputy general manager or above level for at least four consecutive years;
+* (Associate) Professors in major educational institutions for at least four consecutive years;
+* Spouses of Chinese citizens who have been married and resided in China for at least five consecutive years (each year at least 9 months);
+* Unmarried children under 18 of Chinese citizens or Green Card holders;
+* Those over 60 with no next of kin in their home country but only in China, who have resided in China for at least five consecutive years;
+* Those who have made major contributions to China's economic and social development.
+
+## Requirements
+
+Since I'm applying for a category 6 (spouse of Chinese citizen) Green Card, that's the only one I can say something definite about. For other categories, please check one of the official websites [4], or contact the Entry & Exit Bureau directly.
+
+Here's a list of required documents, all of which have to be issued within the last six months. You'll need to prepare two identical sets of copies of all the documents, and have to bring all the original documents for inspection.
+
+All foreign documents need to be legalized by the Chinese Embassy in the respective country and will have to be translated and notarized. Again, don't forget that the original document has to be issued within the last six months!
+
+* Notarized marriage certificate;
+* Valid passports and visas for the entire time you've been in China. This includes old passports if they've expired while in China!
+* Your most recent Accommodation Registration Form (from your local police office);
+* Certificate of Non-Criminal Record for each country you've lived in for one year or more during your life (including China);
+* Physical Examination Report by Beijing Exit & Entry Inspection and Quarantine Bureau in Haidian;
+* ID Card and Hukou of Chinese spouse, or Green Card of foreign spouse;
+* Notarized bank statement of a deposit in applicants name fixed for at least 6 months from the application date of at least 100k RMB;
+* Notarized house property certificate or house renting certificate;
+* Two recent 2-inch passport photos (with pale blue, white or light gray background) and the same digital photo saved on CD-ROM (USB key or otherwise is not accepted);
+* Statement from your place of work showing your position, yearly base salary and start date (if unemployed, the same from your spouse), on company letter head, with company stamp;
+* Tax statements for all the months you've worked in China (you can get these from the tax office, contact your HR department to find our which tax office you need to go to);
+* Resume of both parties without any gaps, stating the location, company and position of each place of work; location, institution, program and degree of each educational program; or location and "unemployed" for any gaps. The resume has to have a signature.
+
+## Procedure
+
+To get your Physical Examination Report, just go to the Inspection and Quarantine Bureau in Haidian early in the morning on weekdays. After you register and pay you'll get a form to collect stamps from all the Physical Checks. In the lobby you can arrange the results to be sent back to you by courier, or you can pick them up yourself after a week or so.
+
+Once you've collected all your documents, but before you translate/notarize them, it's a good idea to make an appointment at the Exit & Entry Bureau, so they can do a quick check to make sure the documents are acceptable. You can find the desk at the "Chinese" side of the second floor, next to the counter for company registrations. Call ahead to make an appointment, if you don't speak Chinese, bring someone who does, as the people you'll be dealing with speak virtually no English.
+
+Once you've gotten the "okay", also try to get two copies of the application form, to save time during your next appointment. You'll need to stick a passport photo on each of them, and complete them (ideally) in Chinese. Both parties need to sign the form on the back.
+
+For translation and notarization of foreign documents, bank statement and house certificate, and to get the Chinese Non-Criminal Record, you can use Beijing Shuangxiong Foreign Service Company [5] just a few doors down on Andingmen Dong Dajie, No. 3. They are one of the few notary offices that will issue the Chinese Non-Criminal Record. Budget about two weeks for their service, and make sure to check each document carefully before you accept them.
+
+After all the relevant documents are translated and notarized, make another appointment at the Exit & Entry bureau to hand them in. Bring CNY 1500,- in cash (or use the ATM), as for some reason they don't accept cards for this specific payment.
+
+Now the long wait begins, as the process can take over a year. If they have any questions, they'll call you, so if you speak no or little Chinese, it's a good idea to give the contact details of someone who does on the application form (there's a "contact person" box on the back)
+
+## Updates
+
+Make sure the address on the application form matches exactly the address on your house property/rental contract and your Accommodation Registration Form.
+
+My Accommodation Registration Form was still in the address of my parents-in-law (for convenience) and I had to change it and hand in the new Form to the Exit & Entry Bureau before the end of the week.
+
+Apparently they don't just stuff the application somewhere in a drawer, but they actually check it the same day :-)
+
+=> http://www.ebeijing.gov.cn/feature_2/ResidinginBeijing/LegalProcedures/PermanentResidencePermit/
+=> https://goo.gl/maps/7aBzq

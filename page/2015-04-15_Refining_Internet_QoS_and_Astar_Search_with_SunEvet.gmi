@@ -1,0 +1,19 @@
+# Refining Internet QoS and A* Search with SunEvet
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/project.gmi Projects
+
+Many of you have been wondering what I've been working on for the past almost one year. Due to legal restrictions (because of the patent filing process), unfortunately, I wasn't able to disclose anything up until now.
+
+But now that all the legal mumble-jumble has been done, and the research paper [4] has been published, I'm proud to share with you all what's been keeping me up.
+
+I'm sure you're all aware of my stance in the "net neutrality" debate, namely that packet prioritization is a necessity for the functioning of the internet. Without prioritization, many innovations, such as remote surgery, VOIP etc. wouldn't be possible.
+
+The internet core-routers are responsible for two primary tasks. One the one hand, they will process packets based on the priority of their content, possibly delaying a BitTorrent feed to make sure that the surgeon's feed arrives in time. On the other hand, they will route packets according to complex rules. These concerns currently are often in opposition with each other.
+
+In my team's research, we developed a novel approach called SunEvet [4] that addresses not only the opposing routing and prioritization concerns, but also helps mitigate the ever growing complexities in both tasks. (In short: an exploding number of different packet types v.s. an increasingly fragmented IP space due to IP holders reselling parts of their range)
+
+As the principle researcher on this project, I've had the honor to publish the first paper [4] giving a general overview of the system. Stay tuned for more papers from my team members, to be released over the following weeks!
+
+=> http://loadingdata.nl/content/images/sunevet.pdf

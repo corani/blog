@@ -1,0 +1,14 @@
+# Waves
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topics/philosophy.gmi Philosophy
+
+The First Wave [Alvin Toffler, The Third Wave ], from hunter-gatherer to agriculture, is described as the establishment of a Gemeinschaft [Roughly translated as community Ferdinand Tönnies, Community and Society ].
+
+The Second Wave, from agriculture to industrialisation, is described as the transformation from Gemeinschaft into Gesellschaft [Roughly translated as society, with some connotations of journeymen in the guild sense].
+
+I understand Gemeinschaft in this context as focused on relationships based on personal ties such as family, village, religion, etc. Gesellschaft, on the other hand, is focused on professional relationships, often based on contacts, such as employment, sports teams, interest groups, etc.
+
+All of this begs the question: now that we're in the Third Wave, from industrial into information based society, what does that mean for the nature of inter-personal relationships?
+

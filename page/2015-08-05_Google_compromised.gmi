@@ -1,0 +1,30 @@
+# More proof Google has been compromised
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/politics.gmi Politics
+
+One of my contacts in the WebID community [4] alerted me to a very troubling proposal [5] from Google, to remove support of the <keygen> HTML attribute, and support for the application/x-x509-*-cert MIME types.
+
+Members from the WebID community and others are attempting to fight Google for retaining this functionality, but with little success. Over the past years, Google has been actively letting this technology die, by refusing to address bugs and refusing to do anything about the horribly confusing UI design. There have been numerous attempts to help Google clean this up, people have even created great looking, easy to use UI designs themselves, only to be utterly ignored.
+
+Their proposal to remove the functionality altogether sounds to me like further proof that Google is compromised by the various three-letter spy agencies.
+
+Let me explain (this is going to be a bit technical).
+
+The strongest forms of encrypted connections on the web use so called Public Key Encryption. It uses a pair of keys to encrypt the connection, one public, one private.
+
+In traditional HTTPS connections (server certificates), the server closely guards it's private key, it's key to the kingdom. If this key ever got out, all the connections would become transparent. This private key is used to encrypt the data that the website sends. It also communicates a public key with the client, that can be used to decrypt the data.
+
+There exists an inverse communication scheme though, called "client certificates". Here the client generates the public/private keypair, and keeps the private key for itself. It communicates the public key to the server it's connecting to, while encrypting the data with it's private key.
+
+Google is proposing to remove this functionality. This means that HTTPS communication can only rely on the use of one server certificate for all clients, instead of a unique client certificate for each client.
+
+That one server certificate means spy-agencies only need to compromise one key per website, in order to spy on all it's users, a key they could either mint themselves for a man-in-the-middle snooping attack, or force the website to hand over by rubber-stamp court order (something which the website isn't allowed to disclose)
+
+Getting to compromise client certificates for each individual user is orders of magnitude harder, since they'll either have to crack the key, or need to snoop on the connection after it has been decrypted by the server. Court orders to get the keys are of no use, since they'd have to get the keys from the end-users.
+
+As a straw-man alternative, Google suggests developers to use immature and inherently insecure JavaScript frameworks that not even provide the full existing functionality. Thanks, Google, for driving another nail in the privacy-casket!
+
+=> http://www.w3.org/2005/Incubator/webid/spec/
+=> https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/pX5NbX0Xack/discussion

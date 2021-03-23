@@ -1,0 +1,103 @@
+# Lua Classes
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+While waiting for my NodeMCU development kit [4] to arrive, I've started playing with the Lua programming language a bit.
+
+## NodeMCU
+
+The NodeMCU kit is a development board build around the very popular ESP8266 WiFi modules that you can get for under $3 (depending on the variant). These modules have a fairly capable microprocessor, a complete WiFi stack and antenna and all the software needed to act as a wireless client or access-point built in.
+
+NodeMCU adds to this a USB interface for powering, programming and communicating serially with these modules, while breaking out all the pins in a breadboard friendly fashion. Moreover, instead of the standard software that requires you to talk to these modules using AT commands from an additional microprocessor, it comes with a Lua interpreter running directly on the module itself.
+
+## Lua
+
+So far I'm quite enjoying the Lua programming language. It reminds me (in a good way) of JavaScript and of the Scheme variant I used to program in for my day job. All three are very light-weight and flexible languages with a distinct functional flavor. While not Object Oriented, this functionality can be added very easily yourself.
+
+Lua has two kinds of basic types, primitives (such as numbers, booleans, strings, etc) and tables. Lua tables can be used as arrays, as maps, as structs, and, as it turns out, as objects. Here is one (of many) simple implementations of a Class in Lua:
+
+```
+function Class(...)
+  local cls  = {}
+  local inst = { [cls] = true }
+
+  for _, base in ipairs({...}) do
+    inst[base] = true
+    for k, v in pairs(base) do
+      cls[k] = v
+    end
+  end
+
+  cls.__index = cls
+  cls.instance_of = inst
+
+  setmetatable(cls, {
+    __call = function(c, ...)
+      local instance = setmetatable({}, c)
+      if instance.__init then
+        instance:__init(...)
+      end
+      return instance
+    end
+  })
+
+  return cls
+end
+```
+
+Yes, that's all. This is all you need to create the infrastructure necessary for Classes, (multiple) Inheritance and Object instanciation. Before going over the code in a little more detail, here's how you can use it:
+
+```
+Vector = {}
+Vector = Class({
+  __init = function(self, x, y)
+    self.x, self.y = x, y
+  end,
+
+  __tostring = function(self)
+    return "Vector(" .. self.x .. ", " .. self.y .. ")"
+  end,
+
+  __add = function(self, other)
+    return Vector(self.x + other.x, self.y + other.y)
+  end,
+
+  norm = function(self)
+    return math.sqrl(self.x ^ 2 + self.y ^ 2)
+  end,
+
+  -- etc
+})
+
+u = Vector(1, 2)
+v = Vector(3, -1)
+w = u + v
+```
+
+To extend an existing class, simply add it as a parameter to the Class constructor, e.g.
+
+```
+Vector3D = Class(Vector, {
+  __init = function(self, x, y, z)
+    Vector.__init(self, x, y)
+    self.z = z
+  end,
+
+  -- etc
+})
+```
+
+Now what's the magic going on in the Class constructor? Let's go over it in a little more detail. We first set up a table "cls" that will become our new class. We also set up a table "inst", which will be used as a map containing all the classes this new class is an instance of. For starters, we add ourselves to this map.
+
+The nested for-loop iterates over all the parameters the Class constructor is called with, adds them to the "inst" map and copies over all their methods and properties to our new class. If a method or property with a specific name already exists, it's simply replaced. This allows for multiple-inheritance.
+
+Lua has the concept of "metatables", which are similar to prototypes. When you call a method, or try to use a property, that doesn't exist on a table, the interpreter will look at the metatable to see if it's there before returning an error. Besides normal methods and properties, the metatable can also contain special meta-methods [5] that will be called at specific times.
+
+We then assign our new class as the "__index" meta-method. This is needed for prototype inheritance, so that you can add methods to a class, instead of to having to add them to each instance of the class. We also assign the "inst" map to the "instance_of" property.
+
+Finally, we add a "__call" meta-method to our new class. When we treat the class as function, the "__call" function will be invoked, which will create a new instance of our class (an empty object, with our class as it's prototype), invoke the "__init" method if it exists and return the instance.
+
+=> http://www.dx.com/p/nodemcu-esp8266-esp-12-deleopment-board-lua-wi-fi-module-w-built-in-antennas-385190
+=> http://lua-users.org/wiki/MetatableEvents

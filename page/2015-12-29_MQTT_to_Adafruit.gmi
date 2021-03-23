@@ -1,0 +1,59 @@
+# MQTT to Adafruit-IO
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+Adafruit recently opened up a beta for their Adafruit.io [4] IoT Dashboard. This service provides a simple way to aggregate IoT data and create dashboards with various graphs with them. For a good introduction, have a lookat Jeremy Morgan's blog [5].
+
+I have started a while back to organize my own IoT projects and experiments around an MQTT message broker [6]. This provides a light-weight publish/subscribe message bus for machine to machine communication. (Buzzword Bingo!)
+
+While Adafruit.IO can be accessed through the MQTT protocol, I like to have a little bit more control. The way I use MQTT is by publishing all the raw data to specific topics, then processing it and re-publishing the aggregate data.
+
+For example, suppose in a room I have two sensors, an ambient light sensor and a presence sensor. Both will publish their raw data through MQTT, where it's picked up by an orchestrator that combines it and sends out an on/off command to the room-light topic for that room, to turn on or off the lights.
+
+While it's possible to do all this through the Adafruit.io MQTT interface, it's both unnecessary and slow to do so. To publish only selected data, I mocked up a simple Python script that forwards data from specific topics on my local MQTT broker to Adafruit.IO:
+
+```
+#!/usr/bin/python
+import paho.mqtt.client as mqtt
+import urllib, urllib2
+
+aiokey = '<SECRET_KEY_HERE>'
+
+def aio_publish(feed, value):
+    data = urllib.urlencode({'value': value})
+    req = urllib2.Request('https://io.adafruit.com/api/feeds/%s/data' % feed, data)
+    req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+    req.add_header('x-aio-key', aiokey)
+    res = urllib2.urlopen(req)
+
+def on_connect(client, data, rc):
+    client.subscribe("/aio/#")
+
+def on_message(client, data, msg):
+    parts = msg.topic.split('/')
+    if len(parts) == 3 and parts[1] == 'aio':
+        aio_publish(parts[2], str(msg.payload))
+
+if __name__ == "__main__":
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+
+    client.connect("localhost", 1883, 60)
+    client.loop_forever()
+```
+
+While the code is fairly self-explanatory, in short what it does is (from near the bottom): create an MQTT client that connects to the local broker and process messages for the duration of the program.
+
+When it's successfully connected (`on_connect`), it'll subscribe to all topics starting with `/aio/`. For each message it receives (`on_message`), it'll make sure the topic is in the form `/aio/<feed>`, then publish it to Adafruit.io (`aio_publish(feed, value)`)
+
+In `aio_publish` the value is first encoded for transferal over HTTP, then a request is prepared to the specific URL, the correct headers are set and finally the request is executed, sending the encoded data off to Adafruit.IO
+
+For production usage, you'd probably want to build something a little more robust, around Adafruit's own API library [7], but as a proof-of-concept the approach above works fine.
+
+=> https://adafruit.io/
+=> https://www.jeremymorgan.com/internet-of-things/how-to-adafruit-io/
+=> http://mqtt.org/
+=> https://learn.adafruit.com/adafruit-io/overview
