@@ -2,7 +2,7 @@
 
 => gemini://loadingdata.nl/ Home
 => gemini://loadingdata.nl/topic/ Topics
-=> gemini://loadingdata.nl/topic/programming.gmi
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
 
 In a previous life, I wrote a lot of my code in an Object-Oriented Scheme dialect. Since then, I've really fallen in love with the language. You might think that a language with only one syntax-construct (s-expressions) would be restrictive, but quite the opposite is true. And while at first, all the parentheses might be off-putting, once you properly indent your code, they quickly become nay invisible.
 
