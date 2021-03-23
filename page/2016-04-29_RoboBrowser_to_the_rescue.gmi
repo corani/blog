@@ -1,0 +1,71 @@
+# RoboBrowser to the rescue
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+Last week I applied for a new passport at the Dutch embassy. While these cost €64,- and take one to three days to be ready in the Netherlands, outside of the Netherlands, they cost €128,- and take three weeks. (But that's a whole different rant)
+
+When I applied, they gave me a website and a code to track the status. It's an ugly ASP site that uses sessions instead of URL parameters, so you need to fill out some form with the tracking code each time you want to check it.
+
+Obviously I'm not going to do that!
+
+## Automation for the people
+
+I've previously used Python Mechanize [4] for these kinds of tasks, but that project hasn't been updated in many years and only works with Python 2. Since I've mostly switched to Python 3, I decided to search for something new.
+
+That's when I found Python RoboBrowser [5]. While it's not quite as comprehensive as Mechanize, it's more than adequate for the task at hand. Even better, it gives you direct access to the underlying BeautifulSoup library [6], for easy DOM manipulation.
+
+Let's first take a look at the Python code, I'll add some notes below:
+
+```
+#!env python3
+from robobrowser import RoboBrowser
+
+def fix_bad_unicode(el):
+    return el.decode(None, 'utf8')
+             .encode('cp1252')
+             .decode('utf8')
+
+def tracker(code):
+    br = RoboBrowser(parser="lxml")
+    br.open('http://track.nederlandwereldwijd.nl/')
+
+    form = br.get_forms()[0]
+    form['ctl00$plhMain$ddlCountry'].value = "China"
+    form['ctl00$plhMain$ddlLanguage'].value = "English"
+    br.submit_form(form)
+
+    form = br.get_forms()[0]
+    form['ctl00$plhMain$txtTrackingNo'].value = code
+    br.submit_form(form)
+
+    table = br.select("#ctl00_plhMain_result_table")
+    return fix_bad_unicode(table[0])
+
+if __name__ == '__main__':
+    html = tracker('XXXXXXXXXXXXXXXX')
+    print(html)
+```
+
+In `tracker`, we create a virtual browser using the `lxml` parser (you can omit this and let RoboBrowser figure out which parser to use by itself, however, this results in some warnings), then navigate to the start page.
+
+We then get the first form on the page, pick some select box values by their label and submit the form. This will open the second page in the workflow. Again, we get the first form on that page, fill in the tracking code and submit the form.
+
+On the final page, we can use a CSS selector, courtesy of BeautifulSoup, to get the extract the part of the page we want, in this case the result table, and return that.
+
+When I ran the code, it worked fine, except for some Unicode Gremlins (erroneous characters caused by incorrect encoding). After scratching my head for a while, I found out that the page contained CP1252 characters, but the server claimed it wasn't encoded as such. Eventually I found that decoding the result (Python strings are unicode by default), encoding it as `cp1252` and finally decoding it as `utf8` again fixed these.
+
+## Emailing the results
+
+To email me the status daily, I simply created a `cron` job that executes this script every morning. Since it writes the result table to stdout, cron will automatically email the results to the user as which it's running.
+
+To get these emails delivered at your public email address, you need to have something like Exim [7] or Postfix [8] installed and create an alias, by adding `<USER>: <EMAIL ADDRESS>` to the '/etc/aliases' file, and running the `newaliases` command.
+
+Finally, by default, `cron` sends the `stdout` as plaintext-email. Since the script returns HTML code, it would be nice if it would send html-email. I found that adding the environment variable `CONTENT_TYPE="text/html; charset=utf-8"` in the crontab worked for me. Your mileage may vary.
+
+=> https://pypi.python.org/pypi/mechanize/ Mechanize
+=> https://github.com/jmcarp/robobrowser RoboBrowser
+=> https://pypi.python.org/pypi/beautifulsoup4 BeautifulSoup
+=> http://www.exim.org/ Exim
+=> http://www.postfix.org/ Postfix

@@ -1,0 +1,300 @@
+# Bowling Game Kata in ABAP
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi Programming
+
+Last month, I wrote about the Bowling Game Kata in Scheme [4], one of my favorite programming languages. Today, I've like to go through the same exercise in a completely different language: ABAP [5].
+
+In my current job, I write most of my code in ABAP (I seem to have a knack for finding jobs that use "exotic" languages). While over 3 decades old, and a bit verbose, it's actually quite a nice language to work in, and it reminds me of one of the first languages I learned: Pascal.
+
+## Setup
+
+Unfortunately, ABAP comes not just with the kitchen sink, but with the entire apartment block. That is, in order to use it, you need to have access to an entire SAP installation, so it might be challenging to follow the exercise for most people.
+
+Let's assume we have access to such a system. Start by creating a class and unit-test class, including a method that we will be implementing.
+
+```
+CLASS zcl_bosd_bowling_kata DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC.
+
+PUBLIC SECTION.
+  TYPES gtt_rolls TYPE STANDARD TABLE OF int1.
+
+  CLASS-METHODS score_game
+    IMPORTING it_rolls        TYPE gtt_rolls
+    RETURNING VALUE(rv_score) TYPE int2.
+
+ENDCLASS.
+
+CLASS zcl_bosd_bowling_kata IMPLEMENTATION.
+  METHOD score_game.
+    CLEAR rv_score.
+  ENDMETHOD.
+ENDCLASS.
+```
+
+Some things to note if you've never seen ABAP code before:
+
+* Being quite an old language, the code is split in a Definition (Header) and an Implementation.
+* Class names need to follow a naming convention. All classes start with "CL_", while user-created classes additionally have a "Z" prefix.
+* There are no Arrays, instead we use Tables.
+* You can define Types made up of any other types.
+
+```
+CLASS zcl_bosd_bowling_aunit DEFINITION FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+  PRIVATE SECTION.
+    DATA:
+      mt_rolls  TYPE zcl_bosd_bowling_kata=>gtt_rolls,
+      mv_score  TYPE int2.
+
+    METHODS:
+      setup.
+ENDCLASS.
+
+CLASS zcl_bosd_bowling_aunit IMPLEMENTATION.
+  METHOD setup.
+    CLEAR: mt_rolls, mv_score.
+  ENDMETHOD.
+ENDCLASS.
+```
+
+A unit-test class is very similar to a normal class, with some additional "annotations" at the top, to mark is as a unit-test class and to describe some of its characteristics. Note that we're referring to the type we created in the implementation class.
+
+For convenience, we've defined two private variables that will be cleared before each test case (in method "setup").
+
+## Test case 1 "All misses"
+
+Let's get started with our first test case: all misses. We first add a new method to the definition and mark it as "FOR TESTING". This will ensure it's automatically picked up by the Unit Test framework, when we go to execute our tests.
+
+```
+CLASS zcl_bosd_bowling_aunit DEFINITION FOR TESTING.
+  ...
+    METHODS:
+      setup,
+      all_misses  FOR TESTING.
+ENDCLASS.
+```
+
+The we implement the same method. Here we add 20 times a score of "0" to our table, then calculate the score and finally assert that the score is "0".
+
+```
+CLASS zcl_bosd_bowling_aunit IMPLEMENTATION.
+  ...
+  METHOD all_misses.
+    DO 20 TIMES.
+      APPEND 0 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'All misses'
+                                    exp = 0
+                                    act = mv_score ).
+  ENDMETHOD.
+ENDCLASS.
+```
+
+If we execute our test suite (Ctrl+Shift+F10), we get a message all test cases were executed successfully. When we cleared the return value in `score_game`, we set it to "0", which coincidentally is the score we were expecting.
+
+## Test Case 2 "All Ones"
+
+Moving on to our next test case: all ones. Let's start again with the test case. From now on, I'll omit the definition and only show the method implementation.
+
+```
+  METHOD all_ones.
+    DO 20 TIMES.
+      APPEND 1 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'All ones'
+                                    exp = 20
+                                    act = mv_score ).
+  ENDMETHOD.
+```
+
+The test case is not very surprising, and it's also not very surprising that it fails: the expected score is "20", but the actual score is "0".
+
+So let's do the simplest thing to make it pass, by going to the implementation of score_game and change it to the following:
+
+```
+  METHOD score_game.
+    CLEAR rv_score.
+    LOOP AT it_rolls INTO DATA(lv_roll).
+      rv_score = rv_score + lv_roll.
+    ENDLOOP.
+  ENDMETHOD.
+```
+
+We Loop over the table (Iterate) and assign each row to a new local variable lv_roll. We then add the score for that roll to the total score that will be returned when the method finished.
+
+Execute our test suite again, and now we have two passing test cases.
+
+## Test Case 3 "All 9 -"
+
+The next test case consists of 10 open frames consisting of a roll of "9" and a miss. The test case should look familiar by now:
+
+```
+  METHOD all_open.
+    DO 10 TIMES.
+      APPEND 9 TO mt_rolls.
+      APPEND 0 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'All 9 -'
+                                    exp = 90
+                                    act = mv_score ).
+  ENDMETHOD.
+```
+
+Let's first try if this case passes with the existing code. And luckily it does: no need to make any changes to the implementation! On to the next one.
+
+## Test Case 4 "One Spare"
+
+Now let's try something a little harder. When you roll a spare, you'll receive the next rolls score as a bonus. First the test case:
+
+```
+  METHOD one_spare.
+    APPEND 5 TO mt_rolls.
+    APPEND 5 TO mt_rolls.
+    APPEND 3 TO mt_rolls.
+    DO 17 TIMES.
+      APPEND 0 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'One Spare'
+                                    exp = 16
+                                    act = mv_score ).
+  ENDMETHOD.
+```
+
+The first two rolls form a spare, so the next roll ("3") will be added as a bonus. When we execute this test case, we'll get a failure: the actual score is 13 instead of 16, since we didn't account for the bonus.
+
+So let's change our implementation to add in the bonus. In order to properly detect spares, we need to calculate the score based on frames, using the individual rolls is no longer sufficient.
+
+```
+  METHOD score_game.
+    CLEAR rv_score.
+
+    " A game consists of 10 frames
+    DO 10 TIMES.
+      DATA(lv_frame) = sy-index - 1.
+      rv_score = rv_score + it_rolls[ lv_frame * 2 + 1 ] 
+                          + it_rolls[ lv_frame * 2 + 2 ].
+
+      IF it_rolls[ lv_frame * 2 + 1 ] + it_rolls[ lv_frame * 2 + 2 ] = 10.
+        " Spare Bonus
+        rv_score = rv_score + it_rolls[ lv_frame * 2 + 3 ].
+      ENDIF.
+    ENDDO.
+  ENDMETHOD.
+```
+
+A game consists of 10 frames, so we iterate 10 times. To determine which frame we're in, we get the iteration index from the system variable `sy-index`. Since this number is 1-based, not 0-based, we subtract one.
+
+The score for the frame is the sum of both rolls. If the score for the frame totaled "10", we had a spare, so we add the score for the subsequent roll.
+
+## Test Case 5 "One Strike"
+
+When you roll a strike, the frame is ended in one roll and you receive the simple score for the next two rolls as a bonus. Our test case for this looks like this:
+
+```
+  METHOD one_strike.
+    APPEND 10 TO mt_rolls.
+    APPEND 5 TO mt_rolls.
+    APPEND 3 TO mt_rolls.
+    DO 16 TIMES.
+      APPEND 0 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'One Strike'
+                                    exp = 26
+                                    act = mv_score ).
+  ENDMETHOD.
+```
+
+Note that this game has only 19 rolls! When we execute our tests, we get the ABAP equivalent of an Array Bounds check error, since we're assuming each frame has two rolls.
+
+We'll need to be a bit smarter at how we iterate over the frames.
+
+```
+  METHOD score_game.
+    CLEAR rv_score.
+    DATA(lv_start) = 0.
+
+    " A game consists of 10 frames
+    DO 10 TIMES.
+      rv_score = rv_score + it_rolls[ lv_start + 1 ].
+
+      IF it_rolls[ lv_start + 1 ] = 10.
+        " Strike Bonus
+        rv_score = rv_score + it_rolls[ lv_start + 2 ] + it_rolls[ lv_start + 3 ].
+        " Strike frame has only one roll
+        lv_start = lv_start + 1.
+      ELSE.
+        rv_score = rv_score + it_rolls[ lv_start + 2 ].
+        IF it_rolls[ lv_start + 1 ] + it_rolls[ lv_start + 2 ] = 10.
+          " Spare Bonus
+          rv_score = rv_score + it_rolls[ lv_start + 3 ].
+        ENDIF.
+        " Open and Spare frames have two rolls
+        lv_start = lv_start + 2.
+      ENDIF.
+    ENDDO.
+  ENDMETHOD.
+```
+
+Instead of depending on the iteration index, we use our own index that we increase by one or two, depending on whether we rolled a strike or not. Moreover, when we roll a strike, we add the next two rolls as a bonus.
+
+## Test Case 6 "All Strikes" and 7 "All Spares"
+
+The remaining test cases are for all strikes (plus two bonus rolls) and all spares (plus one bonus roll):
+
+```
+  METHOD all_strikes.
+    DO 12 TIMES.
+      APPEND 10 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'All Strikes'
+                                    exp = 300
+                                    act = mv_score ).
+  ENDMETHOD.
+
+  METHOD all_spares.
+    DO 21 TIMES.
+      APPEND 5 TO mt_rolls.
+    ENDDO.
+    mv_score = zcl_bosd_bowling_kata=>score_game( mt_rolls ).
+
+    cl_aunit_assert=>assert_equals( msg = 'All Spares'
+                                    exp = 150
+                                    act = mv_score ).
+  ENDMETHOD.
+```
+
+And as luck would have it, these two test cases both pass already. Looking at the implementation, it is pretty clean, so no need for further refactoring. We're done!
+
+## Conclusion
+
+As it turns out, Unit testing works surprisingly well in an ancient language like ABAP. So for new development in ABAP, you have no excuses not to use TDD.
+
+It is interesting to compare the ABAP solution with the previous Scheme solution [4]. While Scheme comes from a List processing background, ABAP comes from a Table processing background. In that sense, they're similar.
+
+In the Scheme implementation, we used recursion to process the list. This caused us several failures towards the end of the list (especially the last two test cases). ABAP uses more straightforward loops that avoid these problems (though we did have to hardcode the number of frames!)
+
+Note though that halfway through the exercise we switched from a LOOP to a DO with "random" table accesses. For our maximum of 21 rows this is no problem, but this will obviously need to be changed if you're processing multiple millions of rows.
+
+For the entire source code, see this Gist [6].
+
+=> gemini://loadingdata.nl/page/2017-12-25_Bowling_Game_Kata_in_Scheme.gmi Bowling Game Kata in Scheme
+=> https://en.wikipedia.org/wiki/ABAP ABAP
+=> https://gist.github.com/corani/d529f77a4f98859cfb60302c25c9b9c9 Full source code

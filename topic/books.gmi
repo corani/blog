@@ -6,6 +6,7 @@
 => gemini://loadingdata.nl/page/2015-04-02_Reading_update_March_2015.gmi Reading Update March 2015
 => gemini://loadingdata.nl/page/2015-04-30_Reading_update_April_2015.gmi Reading Update April 2015
 => gemini://loadingdata.nl/page/2015-07-30_Reading_update_May_June_2015.gmi Reading Update May/June 2015
+=> gemini://loadingdata.nl/page/2018-01-08_Answer.gmi "Answer" by Fredric Brown
 
 => gemini://loadingdata.nl/ Home
 => gemini://loadingdata.nl/topic/ Topics

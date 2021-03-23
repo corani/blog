@@ -18,6 +18,9 @@
 => gemini://loadingdata.nl/page/2015-07-03_Lua_Classes.gmi Lua Classes
 => gemini://loadingdata.nl/page/2015-07-10_Preventing_NodeMCU_Bootloops.gmi Preventing NodeMCU Bootloops
 => gemini://loadingdata.nl/page/2015-12-29_MQTT_to_Adafruit.gmi MQTT to Adafruit-IO
+=> gemini://loadingdata.nl/page/2016-04-29_RoboBrowser_to_the_rescue.gmi RoboBrowser to the rescue
+=> gemini://loadingdata.nl/page/2017-12-25_Bowling_Game_Kata_in_Scheme.gmi Bowling Game Kata in Scheme
+=> gemini://loadingdata.nl/page/2018-01-11_Bowling_Game_Kata_in_ABAP.gmi Bowling Game Kata in ABAP
 
 ## Oberon
 

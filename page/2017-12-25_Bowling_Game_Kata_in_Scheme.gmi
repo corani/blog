@@ -1,0 +1,514 @@
+# Bowling Game Kata in Scheme
+
+=> gemini://loadingdata.nl/ Home
+=> gemini://loadingdata.nl/topic/ Topics
+=> gemini://loadingdata.nl/topic/programming.gmi
+
+In a previous life, I wrote a lot of my code in an Object-Oriented Scheme dialect. Since then, I've really fallen in love with the language. You might think that a language with only one syntax-construct (s-expressions) would be restrictive, but quite the opposite is true. And while at first, all the parentheses might be off-putting, once you properly indent your code, they quickly become nay invisible.
+
+Though today I write in a different obscure language, from time to time I still need to get a shot of Scheme. So today, I'm doing the Bowling Kata [4] in Scheme.
+
+## Bowling Kata
+
+For those not familiar with the concept, Code Kata's are a collection of programming exercises popularized by Robert C. Martin (aka Uncle Bob). They can be used as warm-up exercises to get into the flow of writing software, or to get familiar with a new language.
+
+The Bowling Kata is one of these exercises, and I've shamelessly ripped the description from Code Dojo [5]:
+
+Create a program, which, given a valid sequence of rolls for one line of American Ten-Pin Bowling, produces the total score for the game. Here are some things that the program will not do:
+
+* We will not check for valid rolls.
+* We will not check for correct number of rolls and frames.
+* We will not provide scores for intermediate frames.
+
+We can briefly summarize the scoring for this form of bowling:
+
+* Each game, or "line" of bowling, includes ten turns, or "frames" for the bowler.
+* In each frame, the bowler gets up to two tries to knock down all the pins.
+* If in two tries, he fails to knock them all down, his score for that frame is the total number of pins knocked down in his two tries.
+* If in two tries he knocks them all down, this is called a "spare" and his score for the frame is ten plus the number of pins knocked down on his next throw (in his next turn).
+* If on his first try in the frame he knocks down all the pins, this is called a "strike". His turn is over, and his score for the frame is ten plus the simple total of the pins knocked down in his next two rolls.
+* If he gets a spare or strike in the last (tenth) frame, the bowler gets to throw one or two more bonus balls, respectively. These bonus throws are taken as part of the same turn. If the bonus throws knock down all the pins, the process does not repeat: the bonus throws are only used to calculate the score of the final frame.
+* The game score is the total of all frame scores.
+
+## Getting Started
+
+Unfortunately, I no longer have access to the Scheme interpreter I used to use (proprietary), so I'll have to make do with Racket [6] (which, in many ways, is actually better). If you want to follow along, it's a free download available for all major platforms.
+
+For convenience, I'm using DrRacket, the Graphical User Interface for Racket, and I keep both the implementation and the test code in the same file.
+
+It is recommended to use TDD (Test Driven Development) while doing the Code Kata's, and since I haven't used rackunit [7] before, this is a good opportunity to try it out.
+
+## Test case 1 "All misses"
+
+We start by setting up the first test case: 20 rolls that all miss (a zero score for each roll). This allows us to get some back infrastructure in place:
+
+```
+#lang racket
+(require
+  rackunit
+  rackunit/text-ui
+)
+
+(define (bowling-game rolls)
+  0
+)
+
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  (assert-equal? (bowling-game (make-list 20 '0))
+                 0
+  )
+))
+
+(run-tests bowling-game-tests)
+```
+
+Since Racket supports multiple Scheme dialects, we need to let it know on the first line which dialect we'll be using. We then import ("require") some additional libraries for unit testing.
+
+In the next section, we define our function-under-test, named "bowling-game" with one parameter "rolls" and (for the moment) returning the value "0".
+
+We then define our test suite, named "bowling-game-tests", containing our first test case: a game of 20 misses. Each game is represented as a list of rolls, for each roll the number of pins that were knocked over is recorded.
+
+Here we assert that if we don't knock over any pins for an entire game of 20 rolls, our final score will be "0".
+
+Finally, we run all of the tests in our test suite. When we execute this code (Ctrl+R), we are greeted with:
+
+```
+1 success(es) 0 failure(s) 0 error(s) 1 test(s) run
+```
+
+Success!
+
+## Test Case 2 "All Ones"
+
+Now that we know our infrastructure works, we can get on with the next test case. TDD (Test Driven Development) teaches that we should start with writing a (failing) test case, before implementing any code.
+
+In this test case, we knock over exactly one pin in each roll:
+
+```
+...
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  (assert-equal? (bowling-game (make-list 20 '0))
+                 0
+  )
+  (assert-equal? (bowling-game (make-list 20 '1))
+                 20
+  )
+))
+...
+```
+
+The score for this game will be 20 times "1", or "20". When we execute our tests again, our new test (obviously) fails:
+
+```
+--------------------
+Bowling Game Kata > #f
+Unnamed test 
+FAILURE
+name:       check-equal?
+actual:     0
+expected:   20
+. Check failure
+--------------------
+1 success(es) 1 failure(s) 0 error(s) 2 test(s) run
+```
+
+We expected a score of "20", but got a score of "0", since that's the value we hardcoded previously. So let's fix that:
+
+```
+...
+(define (bowling-game rolls)
+  (apply + rolls)
+)
+...
+```
+
+According to TDD, we should do the simplest thing to make the test pass. In this case, that would be to sum all of the rolls. The "apply" function that's used here will apply the function in argument one to the content of the list in argument two. In other languages, you might use an unpack or a varargs call to do something similar.
+
+When we run our test again, we're passing:
+
+```
+2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
+```
+
+## Test Case 3 "All 9 -"
+
+In our next test case, for each of the ten frames, we first knock over 9 pins in our first roll, then miss in our second roll. Again, we start with a test case:
+
+```
+...
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  ...
+  (check-equal? (bowling-game (flatten (make-list 10 '(9 0))))
+                90
+  )
+))
+...
+```
+
+In order to construct the list for this game, we repeat the list `(9 0)` ten times to arrive at a list looking like `( (9 0) (9 0) (9 0) ... )`. Since our function expects a simple list, not a nested one, we then need to flatten it to `( 9 0 9 0 9 0 ... )`.
+
+The score for this game is "90" `(10*(9+0))`. When we run our test again, they already pass:
+
+```
+3 success(es) 0 failure(s) 0 error(s) 3 test(s) run
+```
+
+Now we're getting somewhere!
+
+## Test Case 4 "One Spare"
+
+A Spare is when you knock over all remaining pins on your second roll in a frame. When that happens, your score for the frame will not just be the total of pins you knocked over, but will include a bonus of the pins you knock over in your next roll.
+
+Until now, we could calculate the score simply by roll. However, in order to correctly detect spares, we need to calculate the score by frame. Moreover, to add in the bonus, we need to look ahead one roll.
+
+First things first, our test case:
+
+```
+...
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  ...
+  (check-equal? (bowling-game (append '(5 5 3) (make-list 17 '0)))
+                16
+  )
+))
+...
+```
+
+We roll a Spare in our first frame (10 pins knocked over) and roll "3" in our next roll. The remaining rolls are all "0". In this case, the score for our first frame is "10 + 3", and for our second frame is "3", for a total of "16".
+
+When we run our test case, as expected we will fail:
+
+```
+--------------------
+Bowling Game Kata > #f
+Unnamed test 
+FAILURE
+name:       check-equal?
+actual:     13
+expected:   16
+. Check failure
+--------------------
+3 success(es) 1 failure(s) 0 error(s) 4 test(s) run
+```
+
+To detect spares and to add the bonus, it is no longer sufficient to just sum the rolls, we need to iterate over the list. Iteration in Scheme is done by means of recursion. Let's first rewrite our code to use recursion, without worrying about spares or bonuses:
+
+```
+...
+(define (bowling-game rolls)
+  (cond
+    [(empty? rolls)
+      0
+    ]
+    [else
+      (+ (first rolls)
+         (bowling-game (list-tail rolls 1))
+      )
+    ]
+  )
+)
+```
+
+Whenever we use recursion, we need a terminating condition, or the recursion would never stop (more likely: stop with an error). In this case, our terminator is when the list is empty. If the list is empty, the score is "0", otherwise the score is the sum of the first roll and the score of the rest of rolls (the tail of the list, minus the first element).
+
+When we execute our tests again, we still get the same failure. But at least we didn't break anything else!
+
+The next step is to process the list by frame, instead of by roll:
+
+```
+...
+(define (bowling-game rolls)
+  (cond
+    [(empty? rolls)
+      0
+    ]
+    [else
+      (+ (first rolls)
+         (second rolls)
+         (bowling-game (list-tail rolls 2))
+      )
+    ]
+  )
+)
+```
+
+This is very simple. We just sum the first two elements with the score for the rest of the list, minus the first two elements. Again, we still have the same failure, but didn't break any of the other tests.
+
+Finally, we can detect the spares, and factor in the bonus:
+
+```
+...
+(define (bowling-game rolls)
+  (cond
+    [(empty? rolls)
+      0
+    ]
+    [(= (+ (first rolls) (second rolls)) 10)
+      (+ (first rolls)
+         (second rolls)
+         (third rolls)
+         (bowling-game (list-tail rolls 2))
+    ]
+    [else
+      (+ (first rolls)
+         (second rolls)
+         (bowling-game (list-tail rolls 2))
+      )
+    ]
+  )
+)
+```
+
+If the first two rolls (the entire frame) sums to "10", we rolled a strike. In that case, we add the third roll (first roll from the next frame) as a bonus. Note that we still advance by 2 when we make the recursive call.
+
+Now, finally, we are passing the tests:
+
+```
+4 success(es) 0 failure(s) 0 error(s) 4 test(s) run
+```
+
+So are we done? Well, we're passing the tests, but our code is becoming a bit difficult to read, due to the different levels of abstraction. So before we continue, let's do some refactorings to clean that up:
+
+```
+(define (bowling-game rolls)
+  (define (spare? rolls)
+    (= (+ (first rolls)
+          (second rolls)
+       )
+       10
+    )
+  )
+
+  (define (frame-score rolls)
+    (+ (first rolls)
+       (second rolls)
+       (bowling-game (list-tail rolls 2))
+     )
+  )
+
+  (define (spare-score rolls)
+        (+ (first rolls)
+           (second rolls)
+           (third rolls)
+           (bowling-game (list-tail rolls 2))
+        )
+  )
+
+  (cond
+    [(empty? rolls)
+      0
+    ]
+    [(spare? rolls)
+      (spare-score rolls)
+    ]
+    [else
+      (frame-score rolls)
+    ]
+  )
+)
+```
+
+In Scheme, we can define functions within any scope, so also within other functions. Since our new functions aren't relevant for external callers, we'll "hide" them inside our "bowling-game" function.
+
+By moving the code for detecting and scoring spares and open frames into separate functions, the code in our conditional is now all on the same level of abstraction, and much easier to read.
+
+We run our tests again to verify we didn't make any mistakes during this refactoring, and then can continue.
+
+## Test Case 5 "One Strike"
+
+Now that we can handle spares, let's see about handling strikes. A Strike is when you knock over all pins in your first attempt. This will end the frame (since there are no pins left standing), and as a bonus, the simple score of the next two rolls is added.
+
+We start again with a test case:
+
+```
+...
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  ...
+  (check-equal? (bowling-game (append '(10 5 3) (make-list 16 '0)))
+                26
+  )
+))
+...
+```
+
+Here, we roll a strike in our first frame, then a "5" and a "3" in our second frame. The remaining rolls are all "0".
+
+Note that since the first frame had only one roll, the total number of rolls is 19, not 20.
+
+Perhaps unexpectedly, this time we do not get a test failure, but a runtime error:
+
+```
+second: list contains too few elements
+  list: '(0)
+```
+
+The reason for this is that in our code we assume that each frame has two rolls, but in the case of a strike, it has only one roll. As a result, we try to read off the end of the list.
+
+A failure is a failure nonetheless, so let's fix it by implementing the strike. We follow the structure that we set up in the previous case:
+
+```
+(define (bowling rolls)
+  ...
+  (define (strike? rolls)
+    (= (first rolls)
+       10
+    )
+  )
+
+  (define (strike-score rolls)
+    (+ (first rolls)
+       (second rolls)
+       (third rolls)
+       (bowling (list-tail rolls 1))
+    )
+  )
+
+  (cond
+    [(empty? rolls)
+      0
+    ]
+    [(strike? rolls)
+      (strike-score rolls)
+    ]
+    [(spare? rolls)
+      (spare-score rolls)
+    ]
+    [else
+      (frame-score rolls)
+    ]
+  )
+)
+```
+
+When you compare spare-score and strike-score, you'll note that they are very similar. However, in the first case, "first" and "second" form the first frame, while "third" is the bonus. In the second case, "first" is the first frame, while "second" and "third" are the bonus.
+
+Moreover, spare-score advances the list by two (since the spare consists of two rolls), while strike-score advances the list by one.
+
+Finally, running our tests again:
+
+```
+5 success(es) 0 failure(s) 0 error(s) 5 test(s) run
+```
+
+## Test Case 6 "All Strikes"
+
+Let's see what will happen if we roll a perfect game (ten strikes, plus two bonus strikes):
+
+```
+...
+(define bowling-game-tests (test-suite "Bowling Game Kata"
+  ...
+  (check-equal? (bowling-game (make-list 12 '10))
+                300
+  )
+))
+...
+```
+
+The score for a perfect game is 300, 10 for each strike, but 2x10 bonus for each frame.
+
+Again, perhaps unexpectedly, we get a runtime error:
+
+```
+third: list contains too few elements
+  list: '(10 10)
+```
+
+Also in this case, we're trying to read off the end of the list. This is because we try to calculate a bonus for the bonus rolls after the last frame!
+
+To fix this, we need to make a small enhancement in how we calculate the score for a strike:
+
+```
+  (define (strike-score rolls)
+    (cond
+      [(< (length rolls) 3)
+        0
+      ]
+      [else
+        (+ (first rolls)
+           (second rolls)
+           (third rolls)
+           (bowling (list-tail rolls 1))
+        )
+      ]
+    )
+  )
+```
+
+If there are less than 3 rolls left (that is, we're in the bonus rolls), we don't calculate a score at all. The bonus rolls were already included in the calculation for the last frame.
+
+This way, we are passing again:
+
+```
+6 success(es) 0 failure(s) 0 error(s) 6 test(s) run
+```
+
+Do we need any refactoring? Well, we might consider creating a separate function for the length check, but it's a toss-up if it adds any value.
+
+## Test Case 7 "All Spares"
+
+For our final test case, let's see what happens if we roll all spares:
+
+```
+(define bowling-tests (test-suite "Bowling Game Kata"
+  ...
+  (check-equal? (bowling-game (make-list 21 '5))
+                150
+  )
+))
+```
+
+Since we rolled a spare in the last frame, we get one extra bonus roll, making the number of rolls in this game 21.
+
+Not unexpected anymore, we once again get a runtime error:
+
+```
+second: list contains too few elements
+  list: '(5)
+```
+
+And by now, we know the reason why: we try to read past the end of the list because of the bonus roll. To fix this, we add an additional range check:
+
+```
+(define (bowling-game rolls)
+  ...
+  (cond
+    [(< (length rolls) 2)
+      0
+    ]
+    [(strike? rolls)
+      (strike-score rolls)
+    ]
+    [(spare? rolls)
+      (spare-score rolls)
+    ]
+    [else
+      (frame-score rolls)
+    ]
+  )
+)
+```
+
+And success!
+
+```
+7 success(es) 0 failure(s) 0 error(s) 7 test(s) run
+```
+
+## Conclusion
+
+For those of you who've never used Scheme before, I hope this post inspires you to give it a try. It's really not so daunting, once you get pass the parentheses!
+
+And for those of you who've never tried Code Kata's, do a search for them and pick up some Kata's you find interesting as a warm-up or as some exercises to get familiar with a new language.
+
+Finally, for those who've never used Test Driven Development, what's wrong with you? :-) As the old construction adage goes "measure twice, cut once". You wouldn't construct a house by first cutting all of the materials to size, and then expect everything to fit together flawlessly.
+
+While not a silver bullet, and admittedly very hard to apply to a legacy code-base, TDD will help tremendously when writing new code, especially algorithmic code. Give it a try!
+
+For the entire source code, see this Gist [8].
+
+=> http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata Uncle Bob: The Bowling Game Kata
+=> http://codingdojo.org/kata/Bowling/ Coding Dojo description
+=> https://racket-lang.org/ Racket
+=> https://docs.racket-lang.org/rackunit/ Rackunit
+=> https://gist.github.com/corani/550003dc6727ad17a7126ed7c4bc8f27 Full source code
